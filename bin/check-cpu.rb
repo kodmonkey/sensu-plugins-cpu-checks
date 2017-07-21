@@ -113,7 +113,7 @@ class CheckCPU < Sensu::Plugin::Check::CLI
       (before, now) = acquire_stats_with_sleeping(sec)
     end
 
-    write_stats_to_cache_file(now) if config[:cache_file]
+    write_stats_to_cache_file(now.to_json) if config[:cache_file]
 
     [before, now]
   end
